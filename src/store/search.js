@@ -6,12 +6,16 @@ const state = {
         attrsList: [],
         trademarkList: [],
         pageNo:1,
+        totalPages:0,
+        total:0,
+        pageSize:0,
     }
 };
 const getters={
     goodsList:state=>state.searchList.goodsList,
     attrsList:state=>state.searchList.attrsList,
     trademarkList:state=>state.searchList.trademarkList,
+    total:state=>state.searchList.total,
 }
 const mutations = {
     GETSEARCHLIST(state, searchList) {

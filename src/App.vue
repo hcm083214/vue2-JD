@@ -8,20 +8,21 @@
 
 <script>
 import HeaderPart from "@/components/Header";
-import Home from "@/pages/Home";
 import FooterPart from "./components/Footer";
+import Pagination from "./components/Pagination";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-   HeaderPart, Home,FooterPart
+    HeaderPart,
+    FooterPart,
+    Pagination,
   },
-  mounted(){
-    this.$store.dispatch('getBaseCategoryList');
-  }
-}
+  mounted() {
+    this.$store.dispatch("getBaseCategoryList");
+  },
+};
 </script>
 
 <style>
-
 </style>

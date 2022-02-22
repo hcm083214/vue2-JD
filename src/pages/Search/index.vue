@@ -51,6 +51,8 @@
           :order="searchParams.order"
           @orderChange="orderChange"
         />
+        <HotSale :goodsList="goodsList" />
+        <Pagination :total='total' :pageNo='searchParams.pageNo'/>
       </div>
     </div>
   </div>
@@ -61,9 +63,10 @@ import { mapGetters } from "vuex";
 import Bread from "./Bread";
 import Selector from "./Selector";
 import Details from "./Details";
+import HotSale from "./HotSale";
 export default {
   name: "Search",
-  components: { Bread, Selector, Details },
+  components: { Bread, Selector, Details, HotSale },
   data() {
     return {
       //用来给后端发送请求的参数
@@ -106,7 +109,7 @@ export default {
     Object.assign(this.searchParams, this.$route.query, this.$route.params);
   },
   computed: {
-    ...mapGetters(["goodsList", "attrsList", "trademarkList"]),
+    ...mapGetters(["goodsList", "attrsList", "trademarkList",'total']),
   },
   methods: {
     //功能说明：面包屑删除,针对 keyword 和 props 需要特别处理

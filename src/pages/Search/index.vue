@@ -46,6 +46,11 @@
           @addTrademark="addTrademark"
           @addProps="addProps"
         />
+        <Details
+          :goodsList="goodsList"
+          :order="searchParams.order"
+          @orderChange="orderChange"
+        />
       </div>
     </div>
   </div>
@@ -55,9 +60,10 @@
 import { mapGetters } from "vuex";
 import Bread from "./Bread";
 import Selector from "./Selector";
+import Details from "./Details";
 export default {
   name: "Search",
-  components: { Bread, Selector },
+  components: { Bread, Selector, Details },
   data() {
     return {
       //用来给后端发送请求的参数
@@ -162,6 +168,10 @@ export default {
         category3Id: "",
         props: propsTemp,
       });
+    },
+    orderChange(order) {
+      if (this.searchParams.order == order) return;
+      this.searchParams.order = order;
     },
   },
   watch: {
